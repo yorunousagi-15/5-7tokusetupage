@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="midorino5-7 — クラスのニュースとPDFのお知らせ。">
+  <meta name="theme-color" content="#15241d">
+  <title>NEWS — midorino5-7</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="subpage">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+  <header class="site-header light-header">
+    <a class="brand" href="index.html"><span class="brand-avatar"><img src="class-icon.png" alt=""></span><span>midorino5-7</span></a>
+    <a class="back-link" href="index.html">← HOME</a>
+  </header>
+
+  <main>
+    <section class="subhero news-hero">
+      <div class="subhero-inner reveal">
+        <p class="eyebrow">NEWS / 04</p>
+        <h1>クラスの<br><span>ニュース。</span></h1>
+        <p>お知らせ、行事、配布プリント。<br>大切なものをPDFで、ここに残します。</p>
+      </div>
+    </section>
+
+    <section class="section news-section">
+      <div class="section-head reveal"><span>NOTICE ARCHIVE</span><span>PDF / CLASS</span></div>
+      <div class="news-list" id="newsList"></div>
+      <div class="news-empty reveal" id="newsEmpty" hidden>
+        <div class="empty-icon">✦</div>
+        <h2>これから、増えていく。</h2>
+        <p>ニュースPDFを追加すると、ここに表示されます。追加方法はREADME.mdを見てください。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><strong>midorino5-7</strong><span>NEWS / 2026</span></div>
+    <div><a href="index.html">HOME ↗</a></div>
+  </footer>
+
+  <script src="news-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

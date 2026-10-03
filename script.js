@@ -66,4 +66,76 @@
       blackHole.style.transform = `translate(${x * 6}px, ${y * 5}px)`;
     });
   }
+  function renderNews(items, targetId, limit) {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    const list = Array.isArray(items) ? items.slice() : [];
+    list.sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+    const shown = typeof limit === 'number' ? list.slice(0, limit) : list;
+
+    target.innerHTML = '';
+
+    shown.forEach((item, index) => {
+      const article = document.createElement('article');
+      article.className = 'news-card reveal visible';
+
+      const date = document.createElement('time');
+      date.className = 'news-date';
+      date.dateTime = item.date || '';
+      date.textContent = item.date || '---- -- --';
+
+      const number = document.createElement('span');
+      number.className = 'news-number';
+      number.textContent = String(index + 1).padStart(2, '0');
+
+      const body = document.createElement('div');
+      body.className = 'news-card-body';
+
+      const category = document.createElement('span');
+      category.className = 'news-category';
+      category.textContent = item.category || 'NEWS';
+
+      const title = document.createElement('h2');
+      title.textContent = item.title || '無題のお知らせ';
+
+      const description = document.createElement('p');
+      description.textContent = item.description || '';
+
+      const actions = document.createElement('div');
+      actions.className = 'news-actions-row';
+
+      const openLink = document.createElement('a');
+      openLink.className = 'news-pdf-link';
+      openLink.href = item.pdf || '#';
+      openLink.target = '_blank';
+      openLink.rel = 'noopener';
+      openLink.textContent = 'PDFを開く ↗';
+
+      const downloadLink = document.createElement('a');
+      downloadLink.className = 'news-download-link';
+      downloadLink.href = item.pdf || '#';
+      downloadLink.download = '';
+      downloadLink.textContent = '保存 ↓';
+
+      if (!item.pdf) {
+        openLink.setAttribute('aria-disabled', 'true');
+        downloadLink.setAttribute('aria-disabled', 'true');
+      }
+
+      actions.append(openLink, downloadLink);
+      body.append(category, title, description, actions);
+      article.append(number, date, body);
+      target.appendChild(article);
+    });
+
+    const empty = document.getElementById('newsEmpty');
+    if (empty) empty.hidden = shown.length > 0;
+  }
+
+  if (typeof CLASS_NEWS !== 'undefined') {
+    renderNews(CLASS_NEWS, 'homeNewsList', 2);
+    renderNews(CLASS_NEWS, 'newsList');
+  }
+
 })();
