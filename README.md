@@ -31,3 +31,7 @@
   pdf: "gakusyu-happyo.pdf"
 }
 ```
+
+
+## 写真が表示される仕組み
+最初のテスト写真は gallery.html にも直接書いてあるので、gallery-data.js や JavaScript が何らかの理由で読み込めなくても写真自体は表示されます。追加写真は gallery-data.js に登録して、画像ファイルをルートに置いてください。

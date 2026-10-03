@@ -145,6 +145,7 @@
     if (!target) return;
 
     const list = Array.isArray(items) ? items : [];
+    if (!list.length) return;
     target.innerHTML = '';
 
     list.forEach((item, index) => {
@@ -197,8 +198,11 @@
     };
 
     target.querySelectorAll('.photo-card').forEach((card, index) => {
-      card.querySelector('.photo-button').addEventListener('click', () => {
+      const button = card.querySelector('.photo-button');
+      if (!button) return;
+      button.addEventListener('click', () => {
         const item = list[index];
+        if (!item) return;
         lightboxImage.src = item.image || '';
         lightboxImage.alt = item.title || 'クラス写真';
         lightboxCaption.textContent = item.description ? `${item.title || 'クラスの写真'} — ${item.description}` : (item.title || 'クラスの写真');
