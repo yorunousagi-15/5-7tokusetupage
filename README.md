@@ -1,14 +1,15 @@
-# midorino5-7 class homepage / v4
+# midorino5-7 class homepage
 
-「一人一人の個性が輝く最高のクラス」を中心に、勉強・給食・遊びのメリハリ、ギャラリー、ニュースPDFを扱えるようにした版です。
+静的なHTML / CSS / JavaScriptで動く学級ホームページです。
 
-## PDFニュースの追加方法
+## PDFニュースを追加する
 
-GitHub Pagesは静的サイトなので、サイト上のボタンからPDFをサーバーへ保存することはできません。
-その代わり、GitHubのリポジトリにPDFを追加し、`news-data.js` に1件追加するとニュースとして表示できます。
+1. PDFファイルをこのフォルダに追加します。
+2. `news-data.js` を開きます。
+3. 例をコピーして、日付・カテゴリ・タイトル・説明・PDFファイル名を変更します。
+4. GitHubに保存するとNEWSページに表示されます。
 
-1. PDFファイルを `index.html` や `news.html` と同じ場所にアップロードします。
-2. `news-data.js` の `CLASS_NEWS` に次のようなデータを追加します。
+例:
 
 ```js
 {
@@ -20,6 +21,27 @@ GitHub Pagesは静的サイトなので、サイト上のボタンからPDFを�
 }
 ```
 
-3. GitHub Pagesへ反映すると、トップページのNEWS欄と `news.html` の両方に表示されます。
+## 写真を追加する
 
-ZIP直下でそのままGitHub Pagesに置けます。
+1. JPG / PNG / WEBPなどの写真をこのフォルダに追加します。
+2. `gallery-data.js` を開きます。
+3. 例をコピーして、写真のファイル名・タイトル・説明を変更します。
+4. GitHubに保存するとGALLERYページに表示されます。
+
+例:
+
+```js
+{
+  image: "ensoku.jpg",
+  title: "遠足の日",
+  description: "みんなで出かけた日の一枚。"
+}
+```
+
+写真をクリックすると大きく表示できます。
+
+## ファイルを直接GitHubへ追加する方法
+
+GitHubリポジトリで「Add file」→「Upload files」を使って、PDFや写真をドラッグ＆ドロップできます。
+
+このサイトはGitHub Pagesの静的サイトなので、サイト上のフォームからファイルをGitHubへ保存する機能はありません。ファイルをGitHubへ置いたあと、`news-data.js` または `gallery-data.js` を1件追加する方式です。

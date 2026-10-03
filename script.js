@@ -139,3 +139,84 @@
   }
 
 })();
+
+  function renderGallery(items) {
+    const target = document.getElementById('galleryList');
+    if (!target) return;
+
+    const list = Array.isArray(items) ? items : [];
+    target.innerHTML = '';
+
+    list.forEach((item, index) => {
+      const article = document.createElement('article');
+      article.className = 'photo-card reveal visible';
+
+      const button = document.createElement('button');
+      button.className = 'photo-button';
+      button.type = 'button';
+      button.setAttribute('aria-label', `${item.title || '写真'}を拡大表示`);
+
+      const image = document.createElement('img');
+      image.src = item.image || '';
+      image.alt = item.title || `クラス写真 ${index + 1}`;
+      image.loading = 'lazy';
+
+      button.appendChild(image);
+
+      const body = document.createElement('div');
+      body.className = 'photo-body';
+
+      const meta = document.createElement('small');
+      meta.textContent = `PHOTO / ${String(index + 1).padStart(2, '0')}`;
+
+      const title = document.createElement('h2');
+      title.textContent = item.title || 'クラスの写真';
+
+      const description = document.createElement('p');
+      description.textContent = item.description || '';
+
+      body.append(meta, title, description);
+      article.append(button, body);
+      target.appendChild(article);
+    });
+
+    const empty = document.getElementById('galleryEmpty');
+    if (empty) empty.hidden = list.length > 0;
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    if (!lightbox || !lightboxImage || !lightboxCaption || !lightboxClose) return;
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    target.querySelectorAll('.photo-card').forEach((card, index) => {
+      card.querySelector('.photo-button').addEventListener('click', () => {
+        const item = list[index];
+        lightboxImage.src = item.image || '';
+        lightboxImage.alt = item.title || 'クラス写真';
+        lightboxCaption.textContent = item.description ? `${item.title || 'クラスの写真'} — ${item.description}` : (item.title || 'クラスの写真');
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeLightbox();
+    });
+  }
+
+  if (typeof CLASS_GALLERY !== 'undefined') {
+    renderGallery(CLASS_GALLERY);
+  }
