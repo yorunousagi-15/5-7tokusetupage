@@ -316,3 +316,210 @@ body::before {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+
+/* Daily rhythm --------------------------------------------------------- */
+.daily {
+  background: #fffdf8;
+  overflow: hidden;
+}
+
+.daily-intro {
+  max-width: 760px;
+  margin: 55px auto 36px;
+  text-align: center;
+}
+
+.daily-kicker {
+  margin: 0 0 14px;
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: #8b8f88;
+}
+
+.daily-intro h2 {
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  line-height: 1.05;
+  letter-spacing: -.07em;
+}
+
+.daily-intro h2 span {
+  background: linear-gradient(90deg, var(--pink), var(--yellow), var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.daily-copy {
+  max-width: 640px;
+  margin: 25px auto 0;
+  color: #616861;
+  font-size: 15px;
+}
+
+.rhythm-list {
+  width: min(820px, 100%);
+  margin: 42px auto 0;
+  position: relative;
+}
+
+.rhythm-list::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 20px;
+  bottom: 20px;
+  width: 1px;
+  background: linear-gradient(var(--pink), var(--yellow), var(--blue));
+  opacity: .65;
+}
+
+.rhythm-item {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) 64px;
+  gap: 20px;
+  align-items: center;
+  padding: 22px 24px 22px 0;
+  position: relative;
+}
+
+.rhythm-item + .rhythm-item {
+  margin-top: 6px;
+}
+
+.rhythm-badge {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 8px 22px rgba(40,50,44,.09);
+}
+
+.rhythm-badge.study { color: #d85e75; box-shadow: 0 8px 22px rgba(255,145,165,.2); }
+.rhythm-badge.lunch { color: #a98716; box-shadow: 0 8px 22px rgba(255,228,125,.25); }
+.rhythm-badge.play { color: #4d91bb; box-shadow: 0 8px 22px rgba(118,201,255,.2); }
+
+.rhythm-main {
+  padding: 22px 26px;
+  border: 1px solid #e2e0d8;
+  border-radius: 18px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 15px 35px rgba(30,45,38,.045);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.rhythm-item:hover .rhythm-main {
+  transform: translateX(5px);
+  box-shadow: 0 20px 40px rgba(30,45,38,.08);
+}
+
+.rhythm-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: #899188;
+}
+
+.rhythm-main h3 {
+  margin: 0 0 7px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -.05em;
+}
+
+.rhythm-main p {
+  margin: 0;
+  color: #676e67;
+  font-size: 13px;
+}
+
+.rhythm-symbol {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  font-size: 30px;
+  color: #fff;
+  background: linear-gradient(135deg, #ffabc0, #b89dff);
+  box-shadow: 0 14px 28px rgba(177,143,255,.18);
+  animation: cuteFloat 4.5s ease-in-out infinite;
+}
+
+.rhythm-item:nth-child(2) .rhythm-symbol {
+  background: linear-gradient(135deg, #ffe47d, #ffb5ca);
+  animation-delay: -.8s;
+}
+
+.rhythm-item:nth-child(3) .rhythm-symbol {
+  background: linear-gradient(135deg, #7ecbff, #8ae0b4);
+  animation-delay: -1.6s;
+}
+
+.daily-note {
+  width: min(720px, 100%);
+  margin: 36px auto 0;
+  display: grid;
+  grid-template-columns: auto minmax(60px, 1fr) auto;
+  gap: 13px;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: .11em;
+  color: #838b83;
+}
+
+.daily-note .note-line {
+  height: 1px;
+  background: linear-gradient(90deg, var(--pink), var(--yellow), var(--blue));
+  position: relative;
+}
+
+.daily-note strong {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #565d57;
+  letter-spacing: .04em;
+}
+
+@media (max-width: 900px) {
+  .rhythm-list { width: 100%; }
+  .daily-intro { max-width: 700px; }
+}
+
+@media (max-width: 760px) {
+  .daily-intro { margin-top: 42px; }
+  .daily-intro h2 { font-size: clamp(2.6rem, 12vw, 4.6rem); }
+  .daily-copy { font-size: 14px; }
+  .rhythm-list::before { left: 22px; }
+  .rhythm-item {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 12px;
+    padding-right: 0;
+  }
+  .rhythm-badge {
+    width: 44px;
+    height: 44px;
+  }
+  .rhythm-main {
+    padding: 18px 17px;
+    border-radius: 15px;
+  }
+  .rhythm-main h3 { font-size: 1.8rem; }
+  .rhythm-symbol {
+    display: none;
+  }
+  .daily-note {
+    grid-template-columns: auto minmax(30px, 1fr) auto;
+  }
+}

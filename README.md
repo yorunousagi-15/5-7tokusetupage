@@ -1,12 +1,5 @@
-# midorino5-7 class homepage
+# midorino5-7 class homepage / v3
 
-A static HTML/CSS/JavaScript class homepage.
+「一人一人の個性が輝く最高のクラス」を中心に、勉強・給食・遊びのメリハリを表現する DAILY RHYTHM セクションを追加した版です。
 
-## Files
-- index.html — main page
-- gallery.html — gallery page
-- style.css — design / animations
-- script.js — menu / reveal / sparkle effects
-- class-icon.png — supplied class illustration
-- favicon.png — icon derived from the illustration
-
+ZIP直下でそのままGitHub Pagesに置けます。
