@@ -145,12 +145,19 @@
     if (!target) return;
 
     const list = Array.isArray(items) ? items : [];
-    if (!list.length) return;
-    target.innerHTML = '';
+    const existingImages = new Set(
+      [...target.querySelectorAll('[data-static-photo="true"]')]
+        .map(card => card.dataset.image)
+        .filter(Boolean)
+    );
 
     list.forEach((item, index) => {
+      if (!item || !item.image || existingImages.has(item.image)) return;
+
       const article = document.createElement('article');
       article.className = 'photo-card reveal visible';
+      article.dataset.galleryGenerated = 'true';
+      article.dataset.image = item.image;
 
       const button = document.createElement('button');
       button.className = 'photo-button';
@@ -158,17 +165,16 @@
       button.setAttribute('aria-label', `${item.title || '写真'}を拡大表示`);
 
       const image = document.createElement('img');
-      image.src = item.image || '';
+      image.src = item.image;
       image.alt = item.title || `クラス写真 ${index + 1}`;
       image.loading = 'lazy';
-
       button.appendChild(image);
 
       const body = document.createElement('div');
       body.className = 'photo-body';
 
       const meta = document.createElement('small');
-      meta.textContent = `PHOTO / ${String(index + 1).padStart(2, '0')}`;
+      meta.textContent = `PHOTO / ${String(target.children.length + 1).padStart(2, '0')}`;
 
       const title = document.createElement('h2');
       title.textContent = item.title || 'クラスの写真';
@@ -181,8 +187,9 @@
       target.appendChild(article);
     });
 
+    const allCards = [...target.querySelectorAll('.photo-card')];
     const empty = document.getElementById('galleryEmpty');
-    if (empty) empty.hidden = list.length > 0;
+    if (empty) empty.hidden = allCards.length > 0;
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -197,28 +204,38 @@
       document.body.style.overflow = '';
     };
 
-    target.querySelectorAll('.photo-card').forEach((card, index) => {
+    allCards.forEach(card => {
       const button = card.querySelector('.photo-button');
-      if (!button) return;
+      const image = card.querySelector('img');
+      const title = card.querySelector('h2');
+      const description = card.querySelector('p');
+      if (!button || !image) return;
+      if (button.dataset.lightboxReady === 'true') return;
+
+      button.dataset.lightboxReady = 'true';
       button.addEventListener('click', () => {
-        const item = list[index];
-        if (!item) return;
-        lightboxImage.src = item.image || '';
-        lightboxImage.alt = item.title || 'クラス写真';
-        lightboxCaption.textContent = item.description ? `${item.title || 'クラスの写真'} — ${item.description}` : (item.title || 'クラスの写真');
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = title?.textContent || image.alt || 'クラス写真';
+        const captionText = description?.textContent
+          ? `${title?.textContent || 'クラスの写真'} — ${description.textContent}`
+          : (title?.textContent || image.alt || 'クラスの写真');
+        lightboxCaption.textContent = captionText;
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
       });
     });
 
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', event => {
-      if (event.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') closeLightbox();
-    });
+    if (lightboxClose.dataset.lightboxReady !== 'true') {
+      lightboxClose.dataset.lightboxReady = 'true';
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', event => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeLightbox();
+      });
+    }
   }
 
   if (typeof CLASS_GALLERY !== 'undefined') {
