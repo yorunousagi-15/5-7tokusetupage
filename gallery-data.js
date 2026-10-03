@@ -2,10 +2,9 @@
 // 画像ファイルは gallery-data.js と同じ階層（ZIP直下）に置きます。
 
 const CLASS_GALLERY = [
-  // 例:
-  // {
-  //   image: "ensoku.jpg",
-  //   title: "遠足の日",
-  //   description: "みんなで出かけた日の一枚。"
-  // }
+  {
+    image: "shukuhaku-han-gime.jpg",
+    title: "10/2：宿泊学習の班決め",
+    description: "宿泊学習の班決めを行いました。あまり決まらなかったね。"
+  }
 ];

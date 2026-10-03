@@ -114,7 +114,7 @@ body::before {
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(430px, 88vw);
+  width: min(330px, 86vw);
   background: rgba(10,18,14,.98);
   color: #f7fff9;
   border-left: 1px solid rgba(191,255,224,.12);
@@ -124,13 +124,13 @@ body::before {
 }
 
 .menu.is-open { transform: none; }
-.menu-inner { height: 100%; padding: 25px 34px 28px; display: flex; flex-direction: column; }
+.menu-inner { height: 100%; padding: 22px 24px 24px; display: flex; flex-direction: column; }
 .menu-top { display: flex; justify-content: space-between; font-size: 12px; letter-spacing: .08em; color: #8ba093; }
 .menu-top button { border: 0; background: none; color: #fff; font-size: 28px; line-height: 1; cursor: pointer; }
 .menu nav { margin: auto 0; }
-.menu nav a { display: flex; align-items: baseline; gap: 18px; padding: 10px 0; border-bottom: 1px solid #2c3b32; font-size: clamp(1.65rem, 3vw, 2.7rem); font-weight: 900; letter-spacing: -.04em; }
+.menu nav a { display: flex; align-items: baseline; gap: 18px; padding: 8px 0; border-bottom: 1px solid #2c3b32; font-size: clamp(1.35rem, 2.2vw, 1.9rem); font-weight: 900; letter-spacing: -.04em; }
 .menu nav a b { font-size: 12px; color: var(--green); }
-.menu nav a span { margin-left: auto; font-size: 18px; }
+.menu nav a span { margin-left: auto; font-size: 15px; }
 .menu nav a:hover { color: var(--green); }
 .menu-foot { font-size: 11px; color: #68766d; }
 
@@ -313,9 +313,9 @@ body::before {
   .closing { padding: 90px 18px 105px; }
   .closing h2 { font-size: clamp(4rem, 16vw, 7rem); }
   .footer { padding: 22px 18px; gap: 12px; flex-direction: column; }
-  .menu { width: min(390px, 92vw); }
-  .menu nav a { font-size: 2rem; }
-  .menu-inner { padding: 20px 22px 24px; }
+  .menu { width: min(310px, 88vw); }
+  .menu nav a { font-size: 1.45rem; padding: 7px 0; }
+  .menu-inner { padding: 18px 20px 22px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
