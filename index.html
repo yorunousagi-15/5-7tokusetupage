@@ -3,201 +3,224 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="5-7 — 一人一人の個性が輝く最高のクラス。">
-  <meta name="theme-color" content="#15241d">
-  <title>5-7 — class homepage</title>
+  <meta name="description" content="5-7 一人一人の個性が輝く最高のクラス。勉強、給食、遊び。メリハリを大切にするクラスのホームページです。">
+  <meta name="theme-color" content="#102018">
+  <title>5-7 | Class Homepage</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="noise" aria-hidden="true"></div>
+<body class="home-page">
+  <div class="page-noise" aria-hidden="true"></div>
   <div class="sparkles" id="sparkles" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="midorino5-7 home">
-      <span class="brand-avatar"><img src="class-icon.png" alt=""></span>
-      <span>5-7</span>
+  <header class="header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="class-icon.png" alt=""></span>
+      <span class="brand-name">5-7</span>
+      <span class="brand-sub">CLASS HOMEPAGE</span>
     </a>
-    <button class="menu-button" id="menuButton" aria-label="メニューを開く" aria-expanded="false">
-      <span></span><span></span>
-    </button>
+
+    <div class="header-right">
+      <span class="header-note">ONE CLASS / MANY COLORS</span>
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="menuPanel" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <aside class="menu" id="menu" aria-hidden="true">
-    <div class="menu-inner">
-      <div class="menu-top"><span>INDEX / NAVIGATION</span><button id="menuClose" aria-label="閉じる">×</button></div>
-      <nav>
-        <a href="index.html"><b>01</b>HOME <span>↗</span></a>
-        <a href="#goal"><b>02</b>CLASS GOAL <span>↘</span></a>
-        <a href="#daily"><b>02</b>DAILY RHYTHM <span>↘</span></a>
-        <a href="#colors"><b>03</b>COLORS <span>↘</span></a>
-        <a href="news.html"><b>04</b>NEWS <span>↗</span></a>
-        <a href="#blackhole"><b>05</b>BLACK HOLE <span>↘</span></a>
-        <a href="#memory"><b>06</b>MEMORY <span>↘</span></a>
-        <a href="gallery.html"><b>07</b>GALLERY <span>↗</span></a>
+  <aside class="menu-panel" id="menuPanel" aria-hidden="true">
+    <div class="menu-panel-inner">
+      <div class="menu-top">
+        <span>MENU</span>
+        <button class="menu-close" id="menuClose" type="button" aria-label="メニューを閉じる">×</button>
+      </div>
+      <nav class="menu-links" aria-label="サイト内メニュー">
+        <a href="index.html"><span>01</span><strong>HOME</strong><em>→</em></a>
+        <a href="#class"><span>02</span><strong>CLASS</strong><em>↓</em></a>
+        <a href="#daily"><span>03</span><strong>DAILY</strong><em>↓</em></a>
+        <a href="news.html"><span>04</span><strong>NEWS</strong><em>→</em></a>
+        <a href="#colors"><span>05</span><strong>COLORS</strong><em>↓</em></a>
+        <a href="gallery.html"><span>06</span><strong>GALLERY</strong><em>→</em></a>
       </nav>
-      <div class="menu-foot">5-7 / CLASS HOMEPAGE</div>
+      <div class="menu-bottom">5-7 / YOUR EVERYDAY</div>
     </div>
   </aside>
 
   <main>
     <section class="hero" id="top">
-      <div class="hero-glow glow-a"></div>
-      <div class="hero-glow glow-b"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-orbit orbit-a"></div>
-      <div class="hero-orbit orbit-b"></div>
-
-      <div class="hero-content reveal">
-        <p class="eyebrow">5-7 // CLASS HOMEPAGE</p>
-        <h1>
-          <span class="line">一人一人の</span>
-          <span class="line gradient-text">個性が輝く。</span>
-          <span class="line marker">最高のクラス。</span>
-        </h1>
-        <p class="hero-copy">赤、青、黄色、緑、紫、虹色など。<br>それぞれ違うからこそ、ひとつの景色が生まれる。</p>
-        <a class="hero-link" href="#goal"><span>SCROLL TO DISCOVER</span><i>↓</i></a>
+      <div class="hero-backdrop" aria-hidden="true">
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
+        <div class="hero-blob blob-pink"></div>
+        <div class="hero-blob blob-blue"></div>
+        <div class="hero-grid"></div>
       </div>
 
-      <div class="hero-art reveal">
-        <div class="art-ring"></div>
-        <div class="art-card">
-          <img src="class-icon.png" alt="6色のかわいいキャラクターが並ぶイラスト">
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <p class="small-label">5-7 / OUR CLASS</p>
+          <h1>一人一人の<br><span>個性が輝く。</span><br><b>最高のクラス。</b></h1>
+          <p class="hero-lead">勉強するときはしっかり。給食はみんなで楽しく。遊ぶときは思いきり。<br>メリハリをつけながら、今日も5-7らしく過ごしています。</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#class">クラスを見る <span>↓</span></a>
+            <a class="text-button" href="news.html">NEWS <span>↗</span></a>
+          </div>
         </div>
-        <div class="art-label">SIX COLORS / ONE CLASS</div>
-      </div>
-      <div class="hero-index">01—07</div>
-    </section>
 
-    <section class="intro section" id="goal">
-      <div class="section-head reveal"><span>01 / CLASS GOAL</span><span>OUR MOTTO</span></div>
-      <div class="goal-grid">
-        <div class="display reveal">一人一人の<br><em>個性</em>が輝く<br>最高のクラス。</div>
-        <div class="body-copy reveal">
-          <p>5-7の学級目標は、「一人一人の個性が輝く最高のクラス」。得意なことも、好きなことも、考え方も、みんなそれぞれ違う。</p>
-          <p>違いをなくすのではなく、その違いを大切にして、みんなの色がいちばんきれいに見えるクラスを目指します。</p>
-          <div class="meta-row"><span>THEME</span><b>INDIVIDUALITY / RESPECT / SMILE</b></div>
-          <div class="meta-row"><span>VISION</span><b>EVERY COLOR CAN SHINE</b></div>
+        <div class="hero-visual reveal">
+          <div class="hero-card">
+            <div class="hero-card-top"><span>CLASS SNAP</span><span>5-7</span></div>
+            <img src="class-icon.png" alt="赤・青・黄色・緑・紫・虹色の6色のキャラクター">
+            <div class="hero-card-bottom"><span>SIX COLORS</span><span>ONE CLASS</span></div>
+          </div>
+          <span class="float-tag tag-study">STUDY</span>
+          <span class="float-tag tag-lunch">LUNCH</span>
+          <span class="float-tag tag-play">PLAY</span>
         </div>
       </div>
-      <div class="cute-note reveal" aria-hidden="true">
-        <span class="cute-face">✦</span>
-        <span class="cute-bubble">それぞれ違って、それでいい。</span>
-      </div>
+
+      <div class="hero-scroll">SCROLL <span>↓</span></div>
     </section>
 
-    <section class="daily section" id="daily">
-      <div class="section-head reveal"><span>02 / DAILY RHYTHM</span><span>OUR EVERYDAY</span></div>
-      <div class="daily-intro reveal">
-        <p class="daily-kicker">しっかりやる。いっぱい笑う。切り替える。</p>
+    <section class="notice-strip">
+      <div class="notice-label">LATEST</div>
+      <div class="notice-track"><span>宿泊学習の班決めを行いました。</span><i>✦</i><span>勉強も、給食も、遊びも。全部、私たちの毎日。</span><i>✦</i><span>一人一人の個性が輝く最高のクラス。</span></div>
+    </section>
+
+    <section class="section class-section" id="class">
+      <div class="section-kicker reveal"><span>01 / CLASS</span><span>OUR IDEA</span></div>
+      <div class="class-layout">
+        <div class="class-title reveal">
+          <p class="tiny-label">CLASS GOAL</p>
+          <h2>「違う」が<br><span>集まって、</span><br>クラスになる。</h2>
+        </div>
+        <div class="class-copy reveal">
+          <p class="lead">5-7の学級目標は、<strong>「一人一人の個性が輝く最高のクラス」</strong>。</p>
+          <p>好きなこと、得意なこと、考え方。みんな少しずつ違うからこそ、クラスにはいろいろな色があります。</p>
+          <p>その違いを大切にして、勉強するときは集中、給食では笑顔、遊ぶときは全力。そんなメリハリのある毎日を、みんなで作っていきます。</p>
+          <div class="class-values">
+            <span>しっかり</span><span>たのしく</span><span>おもいきり</span>
+          </div>
+        </div>
+      </div>
+      <div class="class-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    </section>
+
+    <section class="section daily-section" id="daily">
+      <div class="section-kicker reveal"><span>02 / DAILY</span><span>OUR EVERYDAY</span></div>
+      <div class="daily-heading reveal">
+        <p class="tiny-label">メリハリのある毎日</p>
         <h2>勉強も、給食も、遊びも。<br><span>全部、私たちの毎日。</span></h2>
-        <p class="daily-copy">私たちのクラスは、勉強するときはしっかり取り組み、給食はみんなで楽しく食べ、休み時間や放課後には思いきり遊ぶ。メリハリをつけながら、毎日を楽しく過ごしています。</p>
       </div>
-      <div class="rhythm-list">
-        <article class="rhythm-item reveal">
-          <div class="rhythm-badge study">01</div>
-          <div class="rhythm-main"><span class="rhythm-label">STUDY / 集中</span><h3>勉強は、しっかり。</h3><p>授業では気持ちを切り替えて、一人一人が自分の力を伸ばす時間に。分からないところも、みんなで支え合います。</p></div>
-          <div class="rhythm-symbol" aria-hidden="true">✎</div>
+
+      <div class="daily-cards">
+        <article class="daily-card study reveal">
+          <div class="daily-card-top"><span>01</span><span>STUDY</span></div>
+          <div class="daily-icon">✎</div>
+          <h3>勉強は、しっかり。</h3>
+          <p>授業では気持ちを切り替えて、一人一人が集中。分からないことは支え合いながら、できることを増やします。</p>
+          <div class="daily-line"><i></i></div>
         </article>
-        <article class="rhythm-item reveal">
-          <div class="rhythm-badge lunch">02</div>
-          <div class="rhythm-main"><span class="rhythm-label">LUNCH / にこにこ</span><h3>給食は、みんなで。</h3><p>「いただきます」から「ごちそうさま」まで、みんなで囲む楽しい時間。話して、笑って、おいしく食べます。</p></div>
-          <div class="rhythm-symbol" aria-hidden="true">♡</div>
+        <article class="daily-card lunch reveal">
+          <div class="daily-card-top"><span>02</span><span>LUNCH</span></div>
+          <div class="daily-icon">♡</div>
+          <h3>給食は、みんなで。</h3>
+          <p>「いただきます」から「ごちそうさま」まで、みんなで囲む楽しい時間。話して、笑って、おいしく食べます。</p>
+          <div class="daily-line"><i></i></div>
         </article>
-        <article class="rhythm-item reveal">
-          <div class="rhythm-badge play">03</div>
-          <div class="rhythm-main"><span class="rhythm-label">PLAY / 思いきり</span><h3>遊ぶときは、全力。</h3><p>休み時間には元気いっぱい。笑ったり走ったり、好きなことを楽しんだり。切り替えながら毎日を過ごします。</p></div>
-          <div class="rhythm-symbol" aria-hidden="true">✦</div>
+        <article class="daily-card play reveal">
+          <div class="daily-card-top"><span>03</span><span>PLAY</span></div>
+          <div class="daily-icon">✦</div>
+          <h3>遊ぶときは、全力。</h3>
+          <p>休み時間は元気いっぱい。走ったり、笑ったり、好きなことを楽しんだり。切り替えるから、どっちも楽しい。</p>
+          <div class="daily-line"><i></i></div>
         </article>
       </div>
-      <div class="daily-note reveal"><span>ON</span><div class="note-line"></div><span>OFF</span><strong>ちゃんと切り替えるから、どっちも楽しい。</strong></div>
+
+      <div class="switch-line reveal"><span>ON</span><div></div><span>OFF</span><strong>ちゃんと切り替えるから、毎日がもっと楽しい。</strong></div>
     </section>
 
-    <section class="manifesto section-dark">
-      <div class="manifesto-stars" aria-hidden="true"></div>
-      <div class="manifesto-inner reveal">
-        <p class="eyebrow">03 / PRINCIPLE</p>
-        <p class="quote">違うから、<br><span>もっと輝く。</span></p>
-        <div class="quote-note">RED + BLUE + YELLOW + GREEN + PURPLE + RAINBOW = ONE CLASS</div>
+    <section class="statement">
+      <div class="statement-star" aria-hidden="true">✦</div>
+      <div class="statement-inner reveal">
+        <p class="small-label">03 / PRINCIPLE</p>
+        <p class="statement-text">違うから、<br><span>もっと輝く。</span></p>
+        <p class="statement-sub">RED / BLUE / YELLOW / GREEN / PURPLE / RAINBOW</p>
       </div>
     </section>
 
-    <section class="colors section" id="colors">
-      <div class="section-head reveal"><span>04 / COLORS</span><span>SIX PERSONALITIES</span></div>
+    <section class="section colors-section" id="colors">
+      <div class="section-kicker reveal"><span>04 / COLORS</span><span>SIX PERSONALITIES</span></div>
+      <div class="colors-intro reveal">
+        <h2>みんなの色が、<br><span>クラスの景色になる。</span></h2>
+        <p>6つの色は、6つの性格のイメージ。カラフルでちょっと不思議。ひとつに決めないのも5-7らしさです。</p>
+      </div>
       <div class="color-grid">
-        <article class="color-card red reveal"><span class="color-dot"></span><span class="color-no">01</span><h2>赤</h2><p>元気いっぱい。みんなを応援する、ちょっとおっちょこちょい。</p><span class="card-sparkle">✦</span></article>
-        <article class="color-card blue reveal"><span class="color-dot"></span><span class="color-no">02</span><h2>青</h2><p>のんびり屋さん。みんなの癒し。でも実はすごい。</p><span class="card-sparkle">✧</span></article>
-        <article class="color-card yellow reveal"><span class="color-dot"></span><span class="color-no">03</span><h2>黄色</h2><p>いつも明るい。みんなを笑顔にする、好奇心いっぱい。</p><span class="card-sparkle">✦</span></article>
-        <article class="color-card green reveal"><span class="color-dot"></span><span class="color-no">04</span><h2>緑</h2><p>やさしくて穏やか。自然が大好き。みんなの相談役。</p><span class="card-sparkle">✧</span></article>
-        <article class="color-card purple reveal"><span class="color-dot"></span><span class="color-no">05</span><h2>紫</h2><p>マイペースでちょっと不思議。でも実はすごく深い。</p><span class="card-sparkle">✦</span></article>
-        <article class="color-card rainbow reveal"><span class="color-dot"></span><span class="color-no">06</span><h2>虹色</h2><p>自由でカラフル。みんなと仲良し。夢をたくさん持ってる。</p><span class="card-sparkle">✧</span></article>
+        <article class="color-card red reveal"><span class="color-dot"></span><small>01 / RED</small><h3>赤</h3><p>元気いっぱい。みんなを応援する。</p><em>✦</em></article>
+        <article class="color-card blue reveal"><span class="color-dot"></span><small>02 / BLUE</small><h3>青</h3><p>のんびり、やさしく。実はすごい。</p><em>✧</em></article>
+        <article class="color-card yellow reveal"><span class="color-dot"></span><small>03 / YELLOW</small><h3>黄色</h3><p>明るく、好奇心いっぱい。</p><em>✦</em></article>
+        <article class="color-card green reveal"><span class="color-dot"></span><small>04 / GREEN</small><h3>緑</h3><p>穏やかで、みんなの相談役。</p><em>✧</em></article>
+        <article class="color-card purple reveal"><span class="color-dot"></span><small>05 / PURPLE</small><h3>紫</h3><p>マイペース。ちょっと不思議。</p><em>✦</em></article>
+        <article class="color-card rainbow reveal"><span class="color-dot"></span><small>06 / RAINBOW</small><h3>虹色</h3><p>自由でカラフル。夢をたくさん。</p><em>✧</em></article>
       </div>
     </section>
 
-    <section class="news section" id="news">
-      <div class="section-head reveal"><span>04 / NEWS</span><span>CLASS INFORMATION</span></div>
-      <div class="news-intro reveal">
-        <p class="news-kicker">NOTICES / PDF ARCHIVE</p>
-        <h2>クラスのニュースを、<span>ここに。</span></h2>
-        <p>行事のお知らせや配布プリントなどを、PDFで残していきます。新しいお知らせが増えるたびに、この場所も少しずつ育っていきます。</p>
+    <section class="section feature-section" id="news-home">
+      <div class="section-kicker reveal"><span>05 / NEWS</span><span>CLASS INFORMATION</span></div>
+      <div class="feature-head reveal">
+        <div>
+          <p class="tiny-label">NEWS & DOCUMENTS</p>
+          <h2>クラスのニュースを、<br><span>ここに残そう。</span></h2>
+        </div>
+        <a class="outline-button" href="news.html">NEWS一覧 <span>↗</span></a>
       </div>
-      <div class="news-list compact" id="homeNewsList"></div>
-      <div class="news-actions reveal">
-        <a class="button light" href="news.html">NEWSを見る <span>↗</span></a>
+      <div class="home-news-list" id="homeNewsList"></div>
+    </section>
+
+    <section class="cosmic">
+      <div class="cosmic-grid" aria-hidden="true"></div>
+      <div class="cosmic-copy reveal">
+        <p class="small-label">06 / A LITTLE COSMIC MOMENT</p>
+        <h2>ちょっとだけ、<br><span>世界をゆがませる。</span></h2>
+        <p>いつも同じじゃつまらない。文字も、光も、少しだけぐにゃっと。5-7には、そんな遊び心もあります。</p>
+      </div>
+      <div class="cosmic-stage reveal">
+        <div class="warp-ring ring-a"></div>
+        <div class="warp-ring ring-b"></div>
+        <div class="warp-copy warp-copy-a">5-7 · 5-7 · 5-7 · 5-7 · </div>
+        <div class="warp-copy warp-copy-b">EVERY COLOR CAN SHINE · </div>
+        <div class="cosmic-hole"><span></span></div>
       </div>
     </section>
 
-    <section class="blackhole section-dark" id="blackhole">
-      <div class="blackhole-grid"></div>
-      <div class="blackhole-copy reveal">
-        <p class="eyebrow">05 / A LITTLE COSMIC MOMENT</p>
-        <h2>ぐにゃっと、<br><span>世界がゆがむ。</span></h2>
-        <p>ここでは、いつもの文字も少しだけ曲がる。みんなの色が引き寄せられて、ひとつの場所に集まる瞬間。</p>
-      </div>
-
-      <div class="blackhole-stage reveal">
-        <div class="warp-text warp-one">5-7 · 5-7 · 5-7 · 5-7 · </div>
-        <div class="warp-text warp-two">EVERY COLOR CAN SHINE · </div>
-        <div class="black-hole">
-          <div class="accretion accretion-one"></div>
-          <div class="accretion accretion-two"></div>
-          <div class="black-core"></div>
-          <span class="hole-star star-a">✦</span>
-          <span class="hole-star star-b">✧</span>
-          <span class="hole-star star-c">·</span>
+    <section class="section memory-section" id="memory">
+      <div class="section-kicker reveal"><span>07 / MEMORY</span><span>PHOTO ARCHIVE</span></div>
+      <div class="memory-card reveal">
+        <div class="memory-photo"><img src="shukuhaku-han-gime.jpg" alt="宿泊学習の班決めをした黒板の写真"></div>
+        <div class="memory-copy">
+          <p class="tiny-label">LATEST PHOTO</p>
+          <h2>10/2：宿泊学習の班決め</h2>
+          <p>宿泊学習の班決めを行いました。<br>あまり決まらなかったね。</p>
+          <a class="outline-button" href="gallery.html">GALLERYを見る <span>↗</span></a>
         </div>
       </div>
     </section>
 
-    <section class="memory section" id="memory">
-      <div class="section-head reveal"><span>06 / MEMORY</span><span>CLASS LOG</span></div>
-      <div class="memory-grid">
-        <a class="memory-card big reveal" href="gallery.html">
-          <span class="memory-index">01</span>
-          <div><small>PHOTO / ART</small><h2>みんなの<br>ギャラリー</h2><p>クラスで生まれた作品や思い出を、ここに少しずつ。</p></div>
-          <strong>OPEN ↗</strong>
-        </a>
-        <article class="mini-card only-card reveal">
-          <span>02</span>
-          <div><small>RECORD</small><h3>これからの記録</h3><p>行事や出来事を、未来の思い出として残します。</p><div class="tiny-stars">✦　✧　✦</div></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="closing section-dark">
+    <section class="closing">
       <div class="closing-inner reveal">
-        <span class="eyebrow">07 / ONE CLASS</span>
+        <p class="small-label">08 / ONE CLASS</p>
         <h2>みんなで、<br><span>もっとキラキラ。</span></h2>
-        <p>ひとりの色だけでは作れない。みんなの個性が集まって、最高のクラスになる。</p>
-        <a class="button" href="gallery.html">GO TO GALLERY <span>↗</span></a>
+        <p>一人一人の色が集まって、5-7の毎日になる。</p>
+        <div class="closing-actions"><a class="primary-button" href="gallery.html">GALLERY <span>↗</span></a><a class="text-button" href="#top">TOPへ戻る ↑</a></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div><strong>5-7</strong><span>CLASS HOMEPAGE / 2026</span></div>
-    <div><a href="#top">BACK TO TOP ↑</a></div>
+    <div class="footer-brand"><strong>5-7</strong><span>CLASS HOMEPAGE / 2026</span></div>
+    <a href="#top">BACK TO TOP ↑</a>
   </footer>
+
   <script src="news-data.js"></script>
   <script src="script.js"></script>
 </body>

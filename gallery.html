@@ -3,70 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="midorino5-7 — クラスの写真ギャラリー">
-  <title>GALLERY — 5-7</title>
+  <meta name="description" content="5-7 クラスの写真ギャラリー。">
+  <meta name="theme-color" content="#102018">
+  <title>GALLERY | 5-7</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="subpage">
-  <div class="noise" aria-hidden="true"></div>
+<body class="sub-page">
+  <div class="page-noise" aria-hidden="true"></div>
   <div class="sparkles" id="sparkles" aria-hidden="true"></div>
-
-  <header class="site-header light-header">
-    <a class="brand" href="index.html"><span class="brand-avatar"><img src="class-icon.png" alt=""></span><span>5-7</span></a>
-    <a class="back-link" href="index.html">← HOME</a>
+  <header class="header light-header">
+    <a class="brand" href="index.html"><span class="brand-mark"><img src="class-icon.png" alt=""></span><span class="brand-name">5-7</span><span class="brand-sub">CLASS HOMEPAGE</span></a>
+    <a class="back-home" href="index.html">← HOME</a>
   </header>
-
   <main>
-    <section class="subhero">
-      <div class="subhero-inner reveal">
-        <p class="eyebrow">GALLERY / 07</p>
-        <h1>みんなの<br><span>ギャラリー</span></h1>
-        <p>作品、写真、アイデア。<br>クラスの思い出を、少しずつ残していきます。</p>
+    <section class="sub-hero gallery-sub-hero">
+      <div class="sub-hero-inner reveal">
+        <p class="small-label">GALLERY / 06</p>
+        <h1>みんなの<br><span>ギャラリー。</span></h1>
+        <p>作品、写真、思い出。<br>ここから少しずつ増えていきます。</p>
       </div>
+      <div class="sub-hero-shape" aria-hidden="true">◎</div>
     </section>
 
-    <section class="gallery-section section">
-      <div class="section-head reveal"><span>CLASS COLORS</span><span>PHOTO ARCHIVE</span></div>
+    <section class="section gallery-page-section">
+      <div class="section-kicker reveal"><span>PHOTO ARCHIVE</span><span>CLASS COLORS</span></div>
       <div class="gallery-help reveal">
-        <span class="badge">ADD A PHOTO</span>
-        <div>
-          <h2><</h2>
-          <p>こんにちは！</p>
-        </div>
+        <div><p class="tiny-label">ADD A PHOTO</p><h2>写真を1枚、追加する。</h2></div>
+        <p><code>gallery-data.js</code> に写真の情報を1件追加して、画像ファイルを同じ場所へ置けばOKです。</p>
       </div>
-      <div class="photo-grid" id="galleryList">
-        <article class="photo-card reveal visible" data-static-photo="true" data-image="shukuhaku-han-gime.jpg">
-          <button class="photo-button" type="button" aria-label="10/2：宿泊学習の班決めを拡大表示">
-            <img src="shukuhaku-han-gime.jpg" alt="10/2：宿泊学習の班決め" loading="lazy">
-          </button>
-          <div class="photo-body">
-            <small>PHOTO / 01</small>
-            <h2>10/2：宿泊学習の班決め</h2>
-            <p>宿泊学習の班決めを行いました。あまり決まらなかったね。</p>
-          </div>
-        </article>
-      </div>
-      <div class="empty-gallery reveal" id="galleryEmpty" hidden>
-        <img src="class-icon.png" alt="6色のキャラクターイラスト">
-        <div>
-          <span class="badge">ARCHIVE AREA</span>
-          <h2>ここから<br>もっと輝く。</h2>
-          <a class="button light" href="index.html">HOMEへ戻る <span>↗</span></a>
-        </div>
-      </div>
+      <div class="photo-grid" id="galleryList"></div>
+      <div class="gallery-empty" id="galleryEmpty" hidden><img src="class-icon.png" alt="6色のキャラクター"><div><p class="tiny-label">ARCHIVE AREA</p><h2>ここからもっと輝く。</h2><p><code>gallery-data.js</code> に写真を追加してみよう。</p></div></div>
     </section>
   </main>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="写真を閉じる">×</button>
-    <figure>
-      <img id="lightboxImage" src="" alt="">
-      <figcaption id="lightboxCaption"></figcaption>
-    </figure>
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="写真を閉じる">×</button>
+    <figure><img id="lightboxImage" src="" alt=""><figcaption id="lightboxCaption"></figcaption></figure>
   </div>
 
-  <footer class="footer"><div><strong>5-7</strong><span>GALLERY / 2026</span></div><div><a href="index.html">HOME ↗</a></div></footer>
+  <footer class="footer"><div class="footer-brand"><strong>5-7</strong><span>GALLERY / 2026</span></div><a href="index.html">HOME ↗</a></footer>
   <script src="gallery-data.js"></script>
   <script src="script.js"></script>
 </body>

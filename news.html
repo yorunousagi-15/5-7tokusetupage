@@ -3,45 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="5-7 — クラスのニュースとPDFのお知らせ。">
-  <meta name="theme-color" content="#15241d">
-  <title>NEWS — midorino5-7</title>
+  <meta name="description" content="5-7 クラスのニュースとPDFのお知らせ。">
+  <meta name="theme-color" content="#102018">
+  <title>NEWS | 5-7</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="subpage">
-  <div class="noise" aria-hidden="true"></div>
+<body class="sub-page">
+  <div class="page-noise" aria-hidden="true"></div>
   <div class="sparkles" id="sparkles" aria-hidden="true"></div>
-  <header class="site-header light-header">
-    <a class="brand" href="index.html"><span class="brand-avatar"><img src="class-icon.png" alt=""></span><span>midorino5-7</span></a>
-    <a class="back-link" href="index.html">← HOME</a>
+  <header class="header light-header">
+    <a class="brand" href="index.html"><span class="brand-mark"><img src="class-icon.png" alt=""></span><span class="brand-name">5-7</span><span class="brand-sub">CLASS HOMEPAGE</span></a>
+    <a class="back-home" href="index.html">← HOME</a>
   </header>
-
   <main>
-    <section class="subhero news-hero">
-      <div class="subhero-inner reveal">
-        <p class="eyebrow">NEWS / 04</p>
+    <section class="sub-hero news-sub-hero">
+      <div class="sub-hero-inner reveal">
+        <p class="small-label">NEWS / 05</p>
         <h1>クラスの<br><span>ニュース。</span></h1>
-        <p>お知らせ、行事、配布プリント。<br>大切なものをPDFで、ここに残します。</p>
+        <p>お知らせ、行事、配布プリント。<br>5-7の記録をここに残します。</p>
       </div>
+      <div class="sub-hero-shape" aria-hidden="true">✦</div>
     </section>
 
-    <section class="section news-section">
-      <div class="section-head reveal"><span>NOTICE ARCHIVE</span><span>PDF / CLASS</span></div>
-      <div class="news-list" id="newsList"></div>
-      <div class="news-empty reveal" id="newsEmpty" hidden>
-        <div class="empty-icon">✦</div>
-        <h2>これから、もっと増えていく。</h2>
-        <p></p>
+    <section class="section news-page-section">
+      <div class="section-kicker reveal"><span>NOTICE ARCHIVE</span><span>PDF / CLASS</span></div>
+      <div class="news-page-intro reveal">
+        <div><p class="tiny-label">KEEP IT HERE</p><h2>新しいお知らせを、<br><span>少しずつ。</span></h2></div>
+        <p>PDFは <code>news-data.js</code> に1件追加するだけ。写真付きのお知らせにも対応しています。</p>
       </div>
+      <div class="news-list" id="newsList"></div>
+      <div class="news-empty" id="newsEmpty" hidden><div>✦</div><h2>これから増えていく。</h2><p><code>news-data.js</code> にニュースを追加するとここに表示されます。</p></div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div><strong>5-7</strong><span>NEWS / 2026</span></div>
-    <div><a href="index.html">HOME ↗</a></div>
-  </footer>
-
+  <footer class="footer"><div class="footer-brand"><strong>5-7</strong><span>NEWS / 2026</span></div><a href="index.html">HOME ↗</a></footer>
   <script src="news-data.js"></script>
   <script src="script.js"></script>
 </body>

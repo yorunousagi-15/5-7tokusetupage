@@ -1,10 +1,9 @@
-
-const CLASS_NEWS = [
-   {
-    date: "2026-10-02",
-    category: "お知らせ",
-    title: "その他の重要なお知らせ",
-    description: "パレット選手権や面談の紙についてのお知らせ。",
-    pdf: "・計算ドリル・たしかめプリント出してね.pdf"
-  },
+const news = [
+  {
+    date: '2026-10-02',
+    category: 'クラスの様子',
+    title: '宿泊学習の班決め',
+    description: '宿泊学習の班決めを行いました。あまり決まらなかったね。',
+    image: 'shukuhaku-han-gime.jpg'
+  }
 ];
