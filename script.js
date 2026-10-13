@@ -4,6 +4,60 @@
   const menuClose = document.getElementById('menuClose');
   const lessMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Headings receive a staggered, per-character entrance while keeping their
+  // complete text available to assistive technology through aria-label.
+  function animateHeadingText() {
+    const selectors = [
+      '.hero h1', '.class-title h2', '.daily-heading h2', '.statement-text',
+      '.colors-intro h2', '.feature-head h2', '.cosmic-copy h2', '.closing h2',
+      '.sub-hero h1', '.news-page-intro h2', '.gallery-help h2'
+    ].join(',');
+
+    document.querySelectorAll(selectors).forEach((heading) => {
+      const accessibleText = heading.textContent.replace(/\s+/g, ' ').trim();
+      const isSemanticHeading = heading.matches('h1, h2');
+      if (accessibleText && isSemanticHeading) heading.setAttribute('aria-label', accessibleText);
+      const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+      const textNodes = [];
+      while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+      let index = 0;
+      textNodes.forEach((textNode) => {
+        const content = textNode.nodeValue;
+        if (!content || !content.trim()) return;
+        const fragment = document.createDocumentFragment();
+        Array.from(content).forEach((character) => {
+          const span = document.createElement('span');
+          span.className = 'animated-char';
+          if (isSemanticHeading) span.setAttribute('aria-hidden', 'true');
+          span.style.setProperty('--char-index', index);
+          span.textContent = character;
+          const parentSpan = textNode.parentElement.closest('span');
+          if (parentSpan) {
+            const clip = getComputedStyle(parentSpan).backgroundClip;
+            const webkitClip = getComputedStyle(parentSpan).webkitBackgroundClip;
+            if (clip === 'text' || webkitClip === 'text') span.classList.add('is-rainbow');
+          }
+          fragment.appendChild(span);
+          index += 1;
+        });
+        textNode.replaceWith(fragment);
+      });
+    });
+  }
+
+  if (!lessMotion) animateHeadingText();
+
+  // The hero's blurred rainbow glow follows the mouse on desktop.
+  const hero = document.querySelector('.hero');
+  if (hero && !lessMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    hero.addEventListener('pointermove', (event) => {
+      const rect = hero.getBoundingClientRect();
+      hero.style.setProperty('--pointer-x', `${event.clientX - rect.left}px`);
+      hero.style.setProperty('--pointer-y', `${event.clientY - rect.top}px`);
+    }, { passive: true });
+  }
+
   function setMenu(open) {
     if (!menu || !menuButton) return;
     menu.classList.toggle('is-open', open);
