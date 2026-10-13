@@ -4,60 +4,6 @@
   const menuClose = document.getElementById('menuClose');
   const lessMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Headings receive a staggered, per-character entrance while keeping their
-  // complete text available to assistive technology through aria-label.
-  function animateHeadingText() {
-    const selectors = [
-      '.hero h1', '.class-title h2', '.daily-heading h2', '.statement-text',
-      '.colors-intro h2', '.feature-head h2', '.cosmic-copy h2', '.closing h2',
-      '.sub-hero h1', '.news-page-intro h2', '.gallery-help h2'
-    ].join(',');
-
-    document.querySelectorAll(selectors).forEach((heading) => {
-      const accessibleText = heading.textContent.replace(/\s+/g, ' ').trim();
-      const isSemanticHeading = heading.matches('h1, h2');
-      if (accessibleText && isSemanticHeading) heading.setAttribute('aria-label', accessibleText);
-      const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
-      const textNodes = [];
-      while (walker.nextNode()) textNodes.push(walker.currentNode);
-
-      let index = 0;
-      textNodes.forEach((textNode) => {
-        const content = textNode.nodeValue;
-        if (!content || !content.trim()) return;
-        const fragment = document.createDocumentFragment();
-        Array.from(content).forEach((character) => {
-          const span = document.createElement('span');
-          span.className = 'animated-char';
-          if (isSemanticHeading) span.setAttribute('aria-hidden', 'true');
-          span.style.setProperty('--char-index', index);
-          span.textContent = character;
-          const parentSpan = textNode.parentElement.closest('span');
-          if (parentSpan) {
-            const clip = getComputedStyle(parentSpan).backgroundClip;
-            const webkitClip = getComputedStyle(parentSpan).webkitBackgroundClip;
-            if (clip === 'text' || webkitClip === 'text') span.classList.add('is-rainbow');
-          }
-          fragment.appendChild(span);
-          index += 1;
-        });
-        textNode.replaceWith(fragment);
-      });
-    });
-  }
-
-  if (!lessMotion) animateHeadingText();
-
-  // The hero's blurred rainbow glow follows the mouse on desktop.
-  const hero = document.querySelector('.hero');
-  if (hero && !lessMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    hero.addEventListener('pointermove', (event) => {
-      const rect = hero.getBoundingClientRect();
-      hero.style.setProperty('--pointer-x', `${event.clientX - rect.left}px`);
-      hero.style.setProperty('--pointer-y', `${event.clientY - rect.top}px`);
-    }, { passive: true });
-  }
-
   function setMenu(open) {
     if (!menu || !menuButton) return;
     menu.classList.toggle('is-open', open);
@@ -99,7 +45,7 @@
 
   const sparkleBox = document.getElementById('sparkles');
   if (sparkleBox && !lessMotion) {
-    const colors = ['#ff91a5', '#ffe47d', '#76c9ff', '#b695ff', '#65d6a2'];
+    const colors = ['#d8b978', '#dce3ec', '#aab8cd', '#b6a7df', '#f4e4b7'];
     for (let i = 0; i < 18; i += 1) {
       const star = document.createElement('i');
       star.style.left = `${Math.random() * 100}%`;
@@ -110,6 +56,35 @@
       sparkleBox.appendChild(star);
     }
   }
+
+
+  // Subtle metallic cursor light and perspective on the hero card.
+  const hero = document.querySelector('.hero');
+  const heroCard = document.querySelector('.hero-card');
+  if (hero && heroCard && !lessMotion && window.matchMedia('(pointer: fine)').matches) {
+    hero.addEventListener('pointermove', (event) => {
+      const rect = heroCard.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      if (event.clientX >= rect.left - 100 && event.clientX <= rect.right + 100 &&
+          event.clientY >= rect.top - 100 && event.clientY <= rect.bottom + 100) {
+        heroCard.style.transform = `perspective(900px) rotateY(${x * 7}deg) rotateX(${-y * 7}deg) translateY(-2px)`;
+        heroCard.style.boxShadow = `${-x * 12}px ${y * 12 + 30}px 90px rgba(0,0,0,.32), 0 0 32px rgba(216,185,120,.10)`;
+      }
+    });
+    hero.addEventListener('pointerleave', () => {
+      heroCard.style.transform = '';
+      heroCard.style.boxShadow = '';
+    });
+  }
+
+  const header = document.querySelector('.header');
+  const updateHeader = () => {
+    if (!header) return;
+    header.classList.toggle('light-header', window.scrollY > 80 && !document.querySelector('.menu-panel.is-open'));
+  };
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
 
   function makeNewsCard(item, index) {
     const article = document.createElement('article');
